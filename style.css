@@ -1,0 +1,394 @@
+/* 
+   --------------------------------------------------------------
+   1. Imports & Fonts
+   --------------------------------------------------------------
+*/
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&family=Quicksand:wght@500;700&display=swap');
+/* 
+   --------------------------------------------------------------
+   2. Variables & Reset
+   --------------------------------------------------------------
+*/
+:root {
+    /* "Soft Pastel Dream" Theme */
+    --primary-text: #4a4a4a;     /* Warm Dark Grey (Not harsh black) */
+    --secondary-text: #6c757d;   /* Soft Grey */
+    
+    /* Beautiful Pastel Accent (Coral/Salmon) */
+    --accent-color: #ff878d;     
+    --accent-hover: #ff6b72;
+    
+    --card-bg: #ffffff;
+    
+    --shadow-soft: 0 10px 30px rgba(189, 189, 206, 0.4); 
+    --shadow-hover: 0 15px 40px rgba(189, 189, 206, 0.6);
+    
+    --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Nunito', sans-serif; /* Rounded, friendly font */
+    line-height: 1.8;
+    color: var(--primary-text);
+    
+    /* THE PASTEL BACKGROUND: Lavender -> Peach -> Mint */
+    background: linear-gradient(135deg, #fdfbfb 0%, #e2d1c3 100%); /* Fallback */
+    background: linear-gradient(135deg, #FFF0F5 0%, #E6E6FA 40%, #E0F7FA 100%);
+    
+    background-attachment: fixed; /* Keeps the pretty colors still */
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Page Entrance Animation */
+main, section, header {
+    animation: fadeInPage 0.8s ease-out;
+}
+
+@keyframes fadeInPage {
+    from { opacity: 0; transform: translateY(15px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Custom Scrollbar (Cute Pastel Style) */
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-track { background: #fff0f5; }
+::-webkit-scrollbar-thumb { background: #ffb7b2; border-radius: 10px; }
+::-webkit-scrollbar-thumb:hover { background: var(--accent-color); }
+
+/* 
+   --------------------------------------------------------------
+   3. Typography
+   --------------------------------------------------------------
+*/
+h1, h2, h3, h4 {
+    font-family: 'Quicksand', sans-serif; /* Very aesthetic, modern font */
+    color: #5d5d81; /* Deep Pastel Purple/Blue for headings */
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+h1 {
+    font-size: 3.5rem;
+    letter-spacing: -0.5px;
+}
+
+p {
+    margin-bottom: 1.5rem;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: var(--transition);
+}
+
+img, video {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 16px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+/* 
+   --------------------------------------------------------------
+   4. Header & Navigation
+   --------------------------------------------------------------
+*/
+.header {
+    background-color: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(8px);
+    box-shadow: 0 2px 15px rgba(0,0,0,0.03);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    padding: 15px 0;
+}
+
+.header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 25px;
+}
+
+.logo {
+    font-family: 'Quicksand', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--accent-color);
+}
+
+.nav-list {
+    display: flex;
+    gap: 30px;
+    list-style: none;
+}
+
+.nav-list li a {
+    color: #5d5d81;
+    font-weight: 600;
+    font-size: 1rem;
+    position: relative;
+}
+
+/* Cute Underline */
+.nav-list li a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 3px;
+    bottom: -5px;
+    left: 0;
+    background-color: var(--accent-color);
+    border-radius: 2px;
+    transition: var(--transition);
+}
+
+.nav-list li a:hover::after, .active-link::after {
+    width: 100%;
+}
+
+.active-link {
+    color: var(--accent-color) !important;
+}
+.map-container {
+    display: flex;
+    justify-content: center;
+    margin: 40px 0;
+}
+/* 
+   --------------------------------------------------------------
+   5. Hero Section
+   --------------------------------------------------------------
+*/
+.hero {
+    min-height: 100vh;
+    display: flex;
+    background-image: url("assets/images/forest.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0 20px;
+}
+
+.highlight {
+    color: var(--accent-color);
+    position: relative;
+    display: inline-block;
+}
+
+.subtitle {
+    font-size: 1.3rem;
+    max-width: 600px;
+    margin: 15px auto 40px;
+    color: #e7e7f1; /* Muted pastel purple */
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+
+/* Buttons (Pastel & Soft) */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--accent-color);
+    color: #fff !important;
+    padding: 14px 35px;
+    border-radius: 50px;
+    font-weight: 700;
+    border: none;
+    box-shadow: 0 5px 15px rgba(255, 135, 141, 0.4); /* Colored shadow */
+    cursor: pointer;
+    transition: var(--transition);
+    font-size: 1rem;
+}
+
+.btn:hover {
+    background-color: var(--accent-hover);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(255, 135, 141, 0.6);
+}
+
+.btn-outline {
+    background: #fff;
+    color: var(--accent-color) !important;
+    border: 2px solid var(--accent-color);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+.btn-outline:hover {
+    background: var(--accent-color);
+    color: #fff !important;
+}
+
+/* 
+   --------------------------------------------------------------
+   6. Cards & Layout
+   --------------------------------------------------------------
+*/
+.page-container {
+    padding-top: 140px;
+    padding-bottom: 100px;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 60px;
+    color: #5d5d81;
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.skill-card, .education-card {
+    background: #ffffff;
+    padding: 35px;
+    border-radius: 20px;
+     margin-bottom: 30px;
+    /* Soft, dreamy shadow */
+    box-shadow: var(--shadow-soft);
+    border: 1px solid rgba(255,255,255,0.8);
+    transition: var(--transition);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.skill-card:hover, .education-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-hover);
+}
+
+.skill-card h3 {
+    color: #ff878d; /* Pastel Coral Heading */
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+}
+
+/* Pushes the button to the bottom of the card */
+.skill-card .btn {
+    margin-top: auto; 
+    align-self: flex-start;
+}
+
+/* 
+   --------------------------------------------------------------
+   7. Tables & Lists
+   --------------------------------------------------------------
+*/
+.custom-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 30px;
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: var(--shadow-soft);
+    
+}
+
+.custom-table th {
+    background: #ffb7b2; /* Pastel Pink Header */
+    color: white;
+    padding: 18px;
+    text-align: left;
+}
+
+.custom-table td {
+    padding: 15px;
+    border-bottom: 1px solid #fefefe;
+    color: #6c757d;
+}
+
+.custom-list li {
+    list-style: none;
+    padding: 12px 0;
+    border-bottom: 1px solid #f0f0f0;
+    position: relative;
+    padding-left: 30px;
+    color: #555;
+}
+
+.custom-list li::before {
+    content: "♥"; /* Cute heart bullet point */
+    position: absolute;
+    left: 0;
+    color: var(--accent-color);
+    font-size: 1.2rem;
+}
+
+
+/* 
+   --------------------------------------------------------------
+   8. Footer & Mobile
+   --------------------------------------------------------------
+*/
+.footer {
+    background: #fff;
+    padding: 40px 0;
+    text-align: center;
+    color: #999;
+    font-size: 0.9rem;
+    box-shadow: 0 -5px 20px rgba(0,0,0,0.02);
+}
+
+.mobile-nav-toggle {
+    display: none;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.bar {
+    display: block;
+    width: 24px;
+    height: 3px;
+    background: #ff878d;
+    margin: 5px 0;
+    border-radius: 5px;
+}
+
+@media (max-width: 768px) {
+    .mobile-nav-toggle { display: block; }
+    .nav {
+        position: fixed;
+        top: 0; right: -100%;
+        width: 80%; height: 100vh;
+        background: #fff0f5; /* Lavender background for menu */
+        padding: 100px 30px;
+        transition: 0.4s ease;
+        box-shadow: -5px 0 20px rgba(0,0,0,0.05);
+    }
+    .nav.active { right: 0; }
+    .nav-list { flex-direction: column; }
+    .hero h1 { font-size: 2.8rem; }
+}
